@@ -1,0 +1,252 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	outline-width: 0px;
+}
+
+@font-face {
+font-family: Work Sans; /* Имя шрифта */
+font-style: normal;
+font-weight: 600;
+src: url(../fonts/WorkSans-Bold.otf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+font-family: Work Sans; /* Имя шрифта */
+font-style: normal;
+font-weight: 500;
+src: url(../fonts/WorkSans-Medium.otf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+font-family: Work Sans; /* Имя шрифта */
+font-style: normal;
+font-weight: 400;
+src: url(../fonts/WorkSans-Regular.otf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+font-family: Work Sans; /* Имя шрифта */
+font-style: normal;
+font-weight: 300;
+src: url(../fonts/WorkSans-Light.otf); /* Путь к файлу со шрифтом */
+}
+
+
+
+
+@font-face {
+font-family: PT Sans; /* Имя шрифта */
+font-style: normal;
+font-weight: 300;
+src: url(../fonts/PTSans-Regular.ttf) format("truetype"); /* Путь к файлу со шрифтом */
+}
+@font-face {
+font-family: PT Sans; /* Имя шрифта */
+font-style: normal;
+font-weight: 500;
+src: url(../fonts/PTSans-Bold.ttf) format("truetype"); /* Путь к файлу со шрифтом */
+}
+
+body{
+	font-size: 14px;
+	font-style: normal;
+	font-weight: normal;
+	font-family: Work Sans !important;
+}
+
+.left_panel{
+	background-color: #5A61ED;
+	width: 137.2px;
+	height: 100%;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+}
+
+.left_panel div{
+	font-family: PT Sans;
+	position: absolute;
+	height: 63px;
+	width: 190px;
+	/* top: calc(50% - 63px/2 + 249.5px); */
+	bottom: 85px;
+	font-size: 3.5rem;
+	font-weight: 300;
+	line-height: 63px;
+	letter-spacing: 0.5px;
+	color: #FFFFFF;
+	transform: rotate(-90deg);
+}
+
+.right_panel{
+	margin-left: 137.3px;
+	height: 100%;
+	padding-top: 38.52px;
+	padding-left: 20.8px;
+	padding-right: 22px;
+	padding-bottom: 32.48px;
+}
+
+.form_container{
+	position: relative;
+	box-sizing: border-box;
+	width: 485px;
+	height: 409px;
+}
+
+.form_container div{
+	color: #111111;
+}
+
+.question{
+	font-weight: 500;
+	font-size: 22px;
+	line-height: 26px;
+}
+.use_form{
+	font-weight: 300;
+	line-height: 16px;
+	margin-bottom: 20px;
+}
+
+.form_group{
+	height:	42px;
+	width: 235px;
+	display: inline-block;
+	position: relative;
+	margin-bottom: 16px;
+}
+
+form{
+	width: 485px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+form label{
+	color: #7C7C7C;
+	font-weight: 300;
+	font-size: 12px;
+	line-height: 14px;
+	margin-bottom: 5px;
+	display: block;
+}
+
+input[type='password'],input[type='email'],input[type='text'], select{
+	color: black;
+	width: 100%;
+	font-family: Work Sans !important;
+	line-height: 16px;
+	margin-bottom: 6.3px;
+	font-weight: 400;
+	background-color: rgba(0,0,0,0) !important;
+}
+
+.date{
+	width: auto;
+	display: inline;
+}
+
+#day{
+
+}
+
+#month{
+
+}
+
+#year{
+
+}
+
+.underline{
+	width: 100%;
+	height: 2px;
+	background-color: #F2F2F2;
+	transform: matrix(1, 0, 0, -1, 0, 0);
+}
+
+input + .underline:before{
+	content: '';
+	background-color: #5A61ED;
+	height: 1.4px;
+	width: 0px;
+	transition: all 0.3s ease;
+	position: absolute;
+}
+
+input:focus + .underline:before{
+	width: 100%;
+}
+
+input[type='radio']{ /* Hidding radio*/
+	display: inline;
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 0px;
+	overflow: hidden;
+	position: absolute;
+}
+
+input[type="radio"]:checked + span:before{
+	color: red;
+	background: #5A61ED;
+	box-shadow: inset 0 0 0 0.7px #5A61ED,  inset 0 0 0 3px white;
+
+}
+
+.radio{
+	color: black;
+	font-weight: 400;
+	line-height: 16px;
+	height: 16px;
+	margin-right: 19px;
+	display: inline-flex;
+	cursor: pointer;
+}
+
+.radio span{
+	display: inline-flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	line-height: 16px;
+}
+
+.radio span:before{
+	content: '';
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	line-height: 16px;
+	border-radius: 50%;
+	box-shadow: inset 0 0 0 0.7px #5A61ED;
+	margin-right: 6px;
+	transition: 0.5s ease all;
+}
+
+.have{
+	font-weight: 300;
+	position: absolute;
+	left: 0px;
+	bottom: 11px;
+}
+
+.have a{
+	color: #5A61ED;
+	text-decoration: underline;
+	font-weight: 400;
+}
+
+.complete{
+	position: absolute;
+	padding: 7px 26px 7px 25px;
+	background-color: #5A61ED;
+	color: white !important;
+	bottom: 0px;
+	right: 0px;
+	font-size: 14px;
+	line-height: 18px;
+	cursor: pointer;
+}
