@@ -1,0 +1,37 @@
+@font-face {
+font-family: Work Sans; /* Имя шрифта */
+font-style: normal;
+font-weight: 600;
+src: url(../fonts/WorkSans-Bold.otf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+font-family: Work Sans; /* Имя шрифта */
+font-style: normal;
+font-weight: 500;
+src: url(../fonts/WorkSans-Medium.otf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+font-family: Work Sans; /* Имя шрифта */
+font-style: normal;
+font-weight: 400;
+src: url(../fonts/WorkSans-Regular.otf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+font-family: Work Sans; /* Имя шрифта */
+font-style: normal;
+font-weight: 300;
+src: url(../fonts/WorkSans-Light.otf); /* Путь к файлу со шрифтом */
+}
+
+@font-face {
+font-family: PT Sans; /* Имя шрифта */
+font-style: normal;
+font-weight: 300;
+src: url(../fonts/PTSans-Regular.ttf) format("truetype"); /* Путь к файлу со шрифтом */
+}
+@font-face {
+font-family: PT Sans; /* Имя шрифта */
+font-style: normal;
+font-weight: 500;
+src: url(../fonts/PTSans-Bold.ttf) format("truetype"); /* Путь к файлу со шрифтом */
+}
