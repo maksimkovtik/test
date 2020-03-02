@@ -1,5 +1,8 @@
 $(document).ready(function(){
 
+var rv_password = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/
+var rv_email = /^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
+
 $('.form_group').each(function(index, value){
    $(this).delay(index * 200).animate({opacity: 1}, 200);
 })
@@ -61,7 +64,6 @@ function check_form(){
         if($("#nat").val() !='')
         {
             console.log("nat OK");
-            var rv_email = /^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
             if($("#email").val() != '' && rv_email.test($("#email").val()))
             {
               console.log("email OK");
@@ -70,7 +72,6 @@ function check_form(){
                   console.log("date OK");
                   if($("input[name=gender]:checked").val()){
                     console.log("gender OK, " + $("input[name=gender]:checked").val());
-                    var rv_password = /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Zа-яА-Я!@#$%^&*]{8,50}/g;
                     if($("#password").val() !='' && rv_password.test($("#password").val()) &&  $("#password").val() == $("#cpassword").val())
                     {
                         console.log("password OK");
@@ -95,26 +96,21 @@ function reg_succes(){
 $('#email, #password, #cpassword').blur(function(e){
   var id = $(this).attr('id');
   var val = $(this).val();
-  //console.log("blur id: " + id + " blur val: " + val);
+  console.log('blur id:' + id + "; val:" + val);
   switch(id)
   {
-    case 'password':  console.log("blur password");
-                      var rv_password = /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Zа-яА-Я!@#$%^&*]{8,50}/g; //reg_exp
-                      // one number, one capital letter, one lowercase letter, not less than 8 symbols
+    case 'password': // one number, one capital letter, one lowercase letter, not less than 8 symbols
                       if(val.length >= 8 && val != '')
                       {
-                        if(rv_password.test(val))
-                        {
+                        if(rv_password.test(val)){
+                          console.log(val + " " + rv_password.test(val));
                           $('#error_msg').hide();
                           $(this).removeClass("error");
                           $(this).parent().find(".input_status").removeClass("hidden");
-                        }
-                        else{
+                        } else {
                           $('#error_msg').show().html('The password must contain at least one number, one uppercase, one lowercase letter and be at least 8 characters long');
                         }
-                      }
-                      else
-                      {
+                      }else{
                        $(this).addClass("error");
                        $(this).parent().find(".input_status").addClass("hidden");
                        $('#error_msg').show().html('The password must contain at least one number, one uppercase, one lowercase letter and be at least 8 characters long');
@@ -124,18 +120,15 @@ $('#email, #password, #cpassword').blur(function(e){
                         $('#cpassword').parent().find(".input_status").removeClass("hidden");
                       }
                       break;
-    case 'cpassword':   console.log("blur cpassword");
-                        var rv_password = /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Zа-яА-Я!@#$%^&*]{8,50}/g; //reg_exp
+    case 'cpassword':
                         if(val != '' && val == $('#password').val())
                         {
                           if(rv_password.test(val)){
                              $('#error_msg').hide();
                              $(this).removeClass("error");
                              $(this).parent().find(".input_status").removeClass("hidden");
-                          }
-                          else{
+                          } else{
                             $('#error_msg').show().html('The password must contain at least one number, one uppercase, one lowercase letter and be at least 8 characters long');
-
                           }
                         }
                         else
@@ -144,8 +137,7 @@ $('#email, #password, #cpassword').blur(function(e){
                            $(this).parent().find(".input_status").addClass("hidden");
                            $('#error_msg').show().html('Both passwords must match each other');
                         }break;
-    case 'email': console.log("blur email");
-        var rv_email = /^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
+    case 'email':
         if(val != '' && rv_email.test(val))
         {
             $(this).removeClass("error");
