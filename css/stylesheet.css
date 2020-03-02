@@ -1,60 +1,27 @@
+/*подготовка макета */
 *{
 	margin: 0px;
 	padding: 0px;
 	border: 0px;
 	outline-width: 0px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
+/* создание вспомогательных классов */
 .width100{width: 100%;}
+.hidden{opacity: 0 !important;}
 
-@font-face {
-font-family: Work Sans; /* Имя шрифта */
-font-style: normal;
-font-weight: 600;
-src: url(../fonts/WorkSans-Bold.otf); /* Путь к файлу со шрифтом */
-}
-@font-face {
-font-family: Work Sans; /* Имя шрифта */
-font-style: normal;
-font-weight: 500;
-src: url(../fonts/WorkSans-Medium.otf); /* Путь к файлу со шрифтом */
-}
-@font-face {
-font-family: Work Sans; /* Имя шрифта */
-font-style: normal;
-font-weight: 400;
-src: url(../fonts/WorkSans-Regular.otf); /* Путь к файлу со шрифтом */
-}
-@font-face {
-font-family: Work Sans; /* Имя шрифта */
-font-style: normal;
-font-weight: 300;
-src: url(../fonts/WorkSans-Light.otf); /* Путь к файлу со шрифтом */
-}
-
-
-
-
-@font-face {
-font-family: PT Sans; /* Имя шрифта */
-font-style: normal;
-font-weight: 300;
-src: url(../fonts/PTSans-Regular.ttf) format("truetype"); /* Путь к файлу со шрифтом */
-}
-@font-face {
-font-family: PT Sans; /* Имя шрифта */
-font-style: normal;
-font-weight: 500;
-src: url(../fonts/PTSans-Bold.ttf) format("truetype"); /* Путь к файлу со шрифтом */
-}
-
+/* задание стандартных свойств для всех элементов наследуемых от body */
 body{
 	font-size: 14px;
 	font-style: normal;
 	font-weight: normal;
 	font-family: Work Sans !important;
+	overflow:visible;
 }
 
+/* стиль левой панели */
 .left_panel{
 	background-color: #5A61ED;
 	width: 137.2px;
@@ -64,21 +31,24 @@ body{
 	top: 0px;
 }
 
+/* стиль надписи в левой панели */
 .left_panel div{
 	font-family: PT Sans;
 	position: absolute;
 	height: 63px;
-	width: 190px;
-	/* top: calc(50% - 63px/2 + 249.5px); */
-	bottom: 85px;
-	font-size: 3.5rem;
+	width: 162px;
+	bottom: calc(21.98px + 162px);
+	right: 5.7px;
+	font-size: 49px;
 	font-weight: 300;
 	line-height: 63px;
 	letter-spacing: 0.5px;
 	color: #FFFFFF;
 	transform: rotate(-90deg);
+	transform-origin: right bottom;
 }
 
+/* стилизация правой панели */
 .right_panel{
 	margin-left: 137.3px;
 	height: 100%;
@@ -86,48 +56,54 @@ body{
 	padding-left: 20.8px;
 	padding-right: 22px;
 	padding-bottom: 32.48px;
+	overflow: visible;
+	position: relative;
 }
 
+/* стиль блока в котором расположена форма, кнопки и надписи */
 .form_container{
 	position: relative;
 	box-sizing: border-box;
 	width: 485px;
 	height: 409px;
-	overflow: hidden;
+	overflow: visible;
 }
 
-.form_container div{
-	color: #111111;
-}
-
-.question{
+/* стиль жирной надписи и подписи */
+.header{
 	font-weight: 500;
 	font-size: 22px;
 	line-height: 26px;
+	width: 100%;
+	height: 26px;
 }
-.use_form{
+.text{
 	font-weight: 300;
 	line-height: 16px;
 	margin-bottom: 20px;
 }
 
+/* стиль важного блока в котором находятся все смысловые единицы формы */
 .form_group{
 	height:	42px;
 	width: 235px;
 	display: inline-block;
 	position: relative;
 	margin-bottom: 16px;
+	opacity: 0;
+	overflow: visible;
 }
 
+/* стилизация элементов формы */
 form{
-	width: 485px;
+	max-width: 485px;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-between;
 }
 
-form label{
+label{
 	color: #7C7C7C;
 	font-weight: 300;
 	font-size: 12px;
@@ -141,9 +117,10 @@ input[type='password'],input[type='email'],input[type='text']{
 	width: 100%;
 	font-family: Work Sans !important;
 	line-height: 16px;
-	margin-bottom: 6.3px;
+	margin-bottom: 6px;
 	font-weight: 400;
 	background-color: rgba(0,0,0,0) !important;
+	position: relative;
 }
 
 select{
@@ -160,6 +137,7 @@ select{
 	-moz-appearance: none;
 	appearance: none;
 	width: 100%;
+	border-bottom: 0.7px solid #F2F2F2;
 }
 
 select::-ms-expand {
@@ -190,32 +168,49 @@ select::-ms-expand {
 	z-index: 100;
 }
 
-.rotate::after{
+/* стили для галочки валидации поля */
+.input_status{
+	content: '';
+	background: url('../images/success.svg') no-repeat;
+	position: absolute;
+	width: 11px;
+	height: 8px;
+	right: 0px;
+	top: 24px;
+	opacity: 1;
+	pointer-events: none;
+	-webkit-transition: .25s all ease;
+	-o-transition: .25s all ease;
+	transition: .25s all ease;
+	z-index: 500;
+}
+
+/* вспомогательный класс для поворота стрелки выпадающего списка */
+.rotate:after{
 	transform: rotate(180deg);
 }
 
-.date{
-	border-bottom: 1px solid #F2F2F2;
-	box-sizing: border-box;
-}
-
+/* ширина блоков даты */
 #nat{width: 100%;}
 #day{	width: 56px;}
 #month{	width: 91px;}
 #year{	width: 68px;}
 
+/* подчеркивание */
 .underline{
 	width: 100%;
-	height: 1px;
+	height: 0.7px;
 	background-color: #F2F2F2;
-	transform: matrix(1, 0, 0, -1, 0, 0);
+	overflow: visible;
 }
 
+/* цветное подчеркивание при фокусе и его анимация */
 input + .underline:before{
+	z-index: 30;
 	content: '';
 	background-color: #5A61ED;
-	height: 1px;
-	width: 0px;
+	height: 1.4px;
+	width: 0%;
 	transition: all 0.3s ease;
 	position: absolute;
 }
@@ -224,12 +219,20 @@ input:focus + .underline:before{
 	width: 100%;
 }
 
+/* специальное подчеркивание для ошибки */
+.error{
+	color: #FF2222 !important;
+}
+
+input.error + .underline:before{
+	background-color: #FF2222;
+	width: 100%;
+	height: 2px;
+}
+
+/* изменение стиля radio input */
 input[type='radio']{ /* Hidding radio*/
-	display: inline;
-	border: 0;
-	clip: rect(0 0 0 0);
-	height: 0px;
-	overflow: hidden;
+	opacity: 0;
 	position: absolute;
 }
 
@@ -270,6 +273,8 @@ input[type="radio"]:checked + span:before{
 	transition: 0.5s ease all;
 }
 
+
+/* стиль подписи для логина */
 .have{
 	font-weight: 300;
 	position: absolute;
@@ -283,7 +288,8 @@ input[type="radio"]:checked + span:before{
 	font-weight: 400;
 }
 
-.complete{
+/* альтернативная кнопка submit */
+#complete{
 	position: absolute;
 	padding: 7px 26px 7px 25px;
 	background-color: #5A61ED;
@@ -293,31 +299,84 @@ input[type="radio"]:checked + span:before{
 	font-size: 14px;
 	line-height: 18px;
 	cursor: pointer;
+	font-family: PT Sans;
+	font-weight: 300;
+	width: 154px;
 }
 
+#complete:hover{
+	background-color: #888df2;
+}
+
+#complete:active{
+	transform: scale(0.97);
+}
+
+/* стиль и анимация фонового изображения */
 svg{
 	position: absolute;
-	bottom: -56px;
-	right: -104px;
-	width: 382px;
-	height: 382px;
+	bottom: -89px;
+	right: -126px;
+	width: 411px;
+	height: 411px;
 	z-index: -1;
 }
 
-svg path{
-	animation: dash 5s;
-	fill: #F9FAFF;
+svg path, circle{
+	fill: none;
 	stroke: #F9FAFF;
-	stroke-dasharray: 16200;
-	stroke-dashoffset: 2200;
+	stroke-dasharray: 1300;
+	stroke-linecap: round;
+	stroke-width: 29px;
+	stroke-linecap: round;
+	stroke-linejoin: round;
 }
 
+svg path{animation: dash 7s !important;}
+svg circle:nth-child(2){animation: dash 2s !important;}
+svg circle:nth-child(3){animation: dash 7s !important;}
 
-@keyframes dash {
-  0% {
-    stroke-dashoffset: 2200;
-  }
-  100% {
-    stroke-dashoffset: 0;
-  }
+@keyframes dash{
+  0% {stroke-dashoffset: 1300;}
+  100% {stroke-dashoffset: 0;}
+}
+
+/* сообщение об ощибке */
+#error_msg{
+	position: absolute;
+	color: #FF2222;
+	bottom: 63.6px;
+	display: none;
+	white-space: normal;
+	width: 100%;
+	overflow: visible;
+	text-overflow: clip;
+}
+
+/* стиль всплывающего сообщения об успешной регистрации */
+.success_container{
+	position: absolute;
+	box-sizing: border-box;
+	top: 38.52px;
+	left: 20.8px;
+	z-index: 1000;
+	width: 485px;
+	height: 409px;
+	overflow: visible;
+	background-color: white;
+	display: none;
+	opacity: 0;
+	transition-timing-function: ease-in-out;
+}
+
+.success_container .header{
+	position: absolute;
+	top: 216.52px;
+	left: 63.8px;
+}
+
+.success_container .text{
+	position: absolute;
+	top: 253.52px;
+	left: 63.8px;
 }
