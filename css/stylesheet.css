@@ -76,22 +76,25 @@ body{
 	line-height: 26px;
 	width: 100%;
 	height: 26px;
+	overflow: hidden;
 }
 .text{
 	font-weight: 300;
 	line-height: 16px;
 	margin-bottom: 20px;
+	width: 100%;
+	overflow: hidden;
 }
 
 /* стиль важного блока в котором находятся все смысловые единицы формы */
 .form_group{
-	height:	42px;
+	/* height:	42px; */
 	width: 235px;
 	display: inline-block;
 	position: relative;
 	margin-bottom: 16px;
 	opacity: 0;
-	overflow: visible;
+	overflow: hidden;
 }
 
 /* стилизация элементов формы */
@@ -147,7 +150,7 @@ select::-ms-expand {
 .select{
 	display: inline-block;
 	position: relative;
-	margin-right: 9.8px;
+	margin-right: 4.17%;
 }
 
 .select:last-child{margin-right: 0px;}
@@ -192,9 +195,12 @@ select::-ms-expand {
 
 /* ширина блоков даты */
 #nat{width: 100%;}
-#day{	width: 56px;}
+/* #day{	width: 56px;}
 #month{	width: 91px;}
-#year{	width: 68px;}
+#year{	width: 68px;} */
+#day{	width: 24%;}
+#month{	width: 38.7%;}
+#year{	width: 28.93%;}
 
 /* подчеркивание */
 .underline{
@@ -280,6 +286,9 @@ input[type="radio"]:checked + span:before{
 	position: absolute;
 	left: 0px;
 	bottom: 11px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 
 .have a{
@@ -349,8 +358,7 @@ svg circle:nth-child(3){animation: dash 7s !important;}
 	display: none;
 	white-space: normal;
 	width: 100%;
-	overflow: visible;
-	text-overflow: clip;
+	overflow: hidden;
 }
 
 /* стиль всплывающего сообщения об успешной регистрации */
@@ -362,7 +370,7 @@ svg circle:nth-child(3){animation: dash 7s !important;}
 	z-index: 1000;
 	width: 485px;
 	height: 409px;
-	overflow: visible;
+	overflow: hidden;
 	background-color: white;
 	display: none;
 	opacity: 0;

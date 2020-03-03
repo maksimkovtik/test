@@ -5,6 +5,12 @@
         padding-bottom: 150px;
         overflow: hidden;
     }
+
+    .success_container{
+        overflow: hidden;
+        width: 100%;
+    }
+
     .form_group{
         width: 100%;
     }
@@ -14,6 +20,7 @@
     }
     
     .have{bottom: 48px; width: 100%}
+    .text, .header{left: 0 !important}
 }
 
 @media screen and (max-width:425px){
@@ -28,4 +35,7 @@
     #complete{
         width: 100%;
     }
+
+    .text{left: 0}
+    .header{left: 0}
 }
